@@ -810,17 +810,6 @@ function App() {
           Create Project
         </button>
 
-        {showCreateProject && (
-          <CreateProjectDialog
-            onClose={() => setShowCreateProject(false)}
-            onSubmit={createProject}
-            projectName={projectName}
-            setProjectName={setProjectName}
-            projectDescription={projectDescription}
-            setProjectDescription={setProjectDescription}
-          />
-        )}
-
         <div className="field-stack">
           <label>
             Project
@@ -887,48 +876,6 @@ function App() {
             </div>
           </div>
         </header>
-
-        {/* {roles.some((role) => ["ADMIN", "MANAGER"].includes(role)) &&
-          selectedProjectId && (
-            <section className="task-create-panel">
-              <h3>Create Task</h3>
-
-              <input
-                placeholder="Title"
-                value={taskTitle}
-                onChange={(e) => setTaskTitle(e.target.value)}
-              />
-
-              <input
-                placeholder="Description"
-                value={taskDescription}
-                onChange={(e) => setTaskDescription(e.target.value)}
-              />
-
-              <select
-                value={taskPriority}
-                onChange={(e) => setTaskPriority(e.target.value)}
-              >
-                <option value="LOW">Low</option>
-                <option value="MEDIUM">Medium</option>
-                <option value="HIGH">High</option>
-              </select>
-
-              <input
-                placeholder="Assignee Id"
-                value={taskAssigneeId}
-                onChange={(e) => setTaskAssigneeId(e.target.value)}
-              />
-
-              <input
-                type="date"
-                value={taskDueDate}
-                onChange={(e) => setTaskDueDate(e.target.value)}
-              />
-
-              <button onClick={createTask}>Create Task</button>
-            </section>
-          )} */}
 
         <section className="toolbar">
           <div className="search-box">
@@ -1017,6 +964,17 @@ function App() {
           setTaskAssigneeId={setTaskAssigneeId}
           taskDueDate={taskDueDate}
           setTaskDueDate={setTaskDueDate}
+        />
+      )}
+
+      {showCreateProject && (
+        <CreateProjectDialog
+          onClose={() => setShowCreateProject(false)}
+          onSubmit={createProject}
+          projectName={projectName}
+          setProjectName={setProjectName}
+          projectDescription={projectDescription}
+          setProjectDescription={setProjectDescription}
         />
       )}
     </main>
